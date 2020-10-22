@@ -12,7 +12,7 @@ app.use(express.static(path.join(__dirname, 'dist')));
 app.use(
   '/api',
   createProxyMiddleware({
-    target: process.env.BACKEND || process.env.BASEURL,
+    target: process.env.BACKEND,
     changeOrigin: true,
   }),
 );

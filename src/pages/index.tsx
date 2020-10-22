@@ -1,13 +1,10 @@
 import React, { useEffect } from 'react';
 import { history } from 'umi';
 
-export default function(){
-
+export default function() {
   useEffect(() => {
     history.push('/model/projects');
   });
 
-  return (
-    <div> hello klever </div>
-  );
+  return <div> hello klever </div>;
 }

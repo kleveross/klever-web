@@ -29,7 +29,7 @@ function Breadcrumbs(props: any) {
         const titleLength = title.length;
         const titleJSX =
           titleLength > 15 ? (
-            <Tooltip title={title}>{title.substr(0, 15)}</Tooltip>
+            <Tooltip title={title}>{`${title.substr(0, 15)}...`}</Tooltip>
           ) : (
             title
           );

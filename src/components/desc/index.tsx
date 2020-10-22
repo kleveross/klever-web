@@ -5,6 +5,7 @@ import { Card } from 'antd';
 import './index.less';
 
 interface Iprops {
+  style?: React.CSSProperties;
   data?: Array<{
     label: string;
     value: React.ReactNode;
@@ -12,10 +13,10 @@ interface Iprops {
 }
 
 export default function(props: Iprops) {
-  const { data } = props;
+  const { data, style } = props;
 
   return (
-    <Card className="desc-root">
+    <Card style={style} className="desc-root">
       {_.map(data, item => (
         <div className="desc-item" key={_.get(item, 'label')}>
           <div>{_.get(item, 'label')}</div>

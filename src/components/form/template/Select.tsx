@@ -1,5 +1,3 @@
-
-
 import _ from 'lodash';
 import React from 'react';
 import { Select, Tooltip } from 'antd';
@@ -11,7 +9,11 @@ export default function select(props: any) {
   return (
     <Select
       {...resetProps}
-      value={(!field.input.value && field.input.value !== 0) ? undefined : field.input.value}
+      value={
+        !field.input.value && field.input.value !== 0
+          ? undefined
+          : field.input.value
+      }
       style={_.assign({ width: 400 }, style)}
     >
       {_.map(items, (item: any, index: string) => (

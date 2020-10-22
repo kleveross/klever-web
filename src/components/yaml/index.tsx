@@ -11,7 +11,7 @@ export default function(props: IProps) {
   const { name, data } = props;
 
   return (
-    <Card className="editor-root">
+    <Card>
       <Editor name={name} data={data} />
     </Card>
   );

@@ -28,7 +28,13 @@ export default function(props: ISideBarProps) {
       >
         {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
       </div>
-      <Menu theme="dark" mode="inline" className="klever-sidebar-menu">
+      <Menu
+        theme="dark"
+        mode="inline"
+        className="klever-sidebar-menu"
+        defaultOpenKeys={['model-manage']}
+        defaultSelectedKeys={['projects']}
+      >
         <Menu.SubMenu
           title="模型管理"
           key="model-manage"
