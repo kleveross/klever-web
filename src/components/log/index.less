@@ -1,0 +1,259 @@
+@log-dark-bgcolor: #1e1e1e;
+@log-light-bgcolor: #fff;
+
+@keyframes dotFadeIn {
+  from {
+    width: 0;
+  }
+  to {
+    width: 20px;
+  }
+}
+
+@-webkit-keyframes dotFadeIn {
+  from {
+    width: 0;
+  }
+  to {
+    width: 20px;
+  }
+}
+
+.klever-log {
+  min-width: 780px;
+  min-height: 300px;
+  max-height: 500px;
+  position: relative;
+  padding-top: 48px;
+  background-color: @log-dark-bgcolor;
+  &.has-line-number {
+    .klever-log-body {
+      padding-left: 37px;
+    }
+    &::before {
+      content: '';
+      width: 37px;
+      height: 100%;
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      background-color: #2b2b2b;
+    }
+  }
+}
+
+.klever-log-header {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 48px;
+  padding-top: 11px;
+  background-color: #383838;
+  .klever-log-header-left {
+    float: left;
+    color: #fff;
+    font-size: 14px;
+    padding-left: 20px;
+    .klever-log-dot {
+      width: 0;
+      overflow: hidden;
+      white-space: nowrap;
+      display: inline-block;
+      position: relative;
+      top: 5px;
+      animation: dotFadeIn 1.8s infinite;
+      -webkit-animation: dotFadeIn 1.8s infinite;
+    }
+  }
+  .klever-log-header-right {
+    float: right;
+    display: flex;
+    padding-right: 2px;
+    flex-direction: row;
+  }
+}
+
+.klever-log-scroll-button {
+  position: absolute;
+  bottom: 10px;
+  right: 2px;
+  display: flex;
+  flex-direction: column;
+}
+
+.klever-log-button {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  border-radius: 2px;
+  cursor: pointer;
+  padding-top: 2px;
+  margin-right: 8px;
+  background-color: #646464;
+  .klever-log-icon {
+    fill: #fff;
+  }
+  &:hover {
+    background-color: #828282;
+  }
+  &:focus {
+    outline: 0;
+  }
+  &:active {
+    background-color: #828282;
+  }
+  &:disabled {
+    color: #999;
+    cursor: default;
+    .klever-log-icon {
+      fill: #999;
+    }
+    &:hover {
+      background-color: #646464;
+    }
+  }
+  &.download {
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    width: 96px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:disabled {
+      color: #999;
+    }
+  }
+}
+
+.klever-log-body {
+  color: #ccc;
+  max-height: 452px;
+  font-size: 12px;
+  line-height: 24px;
+  overflow-y: auto;
+  position: relative;
+  padding: 5px 0;
+  scroll-behavior: smooth;
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    background: @log-dark-bgcolor;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #666;
+    border-radius: 2px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: #999;
+  }
+  .klever-log-line {
+    position: relative;
+    .klever-log-line-number {
+      position: absolute;
+      left: -33px;
+      width: 29px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-align: right;
+    }
+
+    .klever-log-line-content {
+      cursor: default;
+      word-break: break-word;
+      white-space: pre-wrap;
+      padding: 0 47px 0 10px;
+      &:hover {
+        background-color: #2b2b2b;
+      }
+    }
+  }
+}
+
+.klever-log-loading {
+  margin-top: 2px;
+  flex-direction: row;
+  .snowy-loading-text {
+    color: #ccc;
+    margin-top: 0;
+    margin-left: 4px;
+  }
+  .snowy-loading-icon {
+    fill: #fff;
+  }
+}
+
+.klever-log-empty {
+  color: #666;
+  font-size: 12px;
+  padding: 10px 12px;
+}
+
+/** light theme style here  **/
+.klever-log.light {
+  background-color: @log-light-bgcolor;
+  outline: 1px solid #dee1e7;
+  &.has-line-number {
+    &::before {
+      border-right: 1px solid #dee1e7;
+      background-color: #fbfbfb;
+    }
+  }
+  .klever-log-header {
+    background-color: #f6f6f6;
+    border-bottom: 1px solid #dee1e7;
+    .klever-log-header-left {
+      color: #666;
+    }
+  }
+  .klever-log-button {
+    background-color: #c2c2c2;
+    &.skin {
+      transform: rotate(180deg);
+      -webkit-transform: rotate(180deg);
+    }
+    &:hover {
+      background-color: #adadad;
+    }
+    &:active {
+      background-color: #999;
+    }
+    &:disabled {
+      color: #eee;
+      background-color: #d6d6d6;
+      .klever-log-icon {
+        fill: #eee;
+      }
+      &:hover {
+        background-color: #d6d6d6;
+      }
+    }
+  }
+  .klever-log-body {
+    color: #666;
+    &::-webkit-scrollbar-track {
+      background: @log-light-bgcolor;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: #ccc;
+    }
+    .klever-log-line-content {
+      &:hover {
+        background-color: #f6f6f6;
+      }
+    }
+  }
+  .klever-log-loading {
+    .snowy-loading-text {
+      color: #666;
+    }
+    .snowy-loading-icon {
+      fill: #999;
+    }
+  }
+}

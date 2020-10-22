@@ -1,0 +1,65 @@
+.klever-layout-list{
+  padding: 16px;
+  .ant-btn{
+    margin-bottom: 12px;
+  }
+}
+
+.klever-layout-page{
+  .ant-tabs:first-child {
+    .ant-tabs-nav{
+      background-color: #fff;
+      box-shadow: 0 2px 2px 0 rgba(213, 222, 237, 0.5);
+      .ant-tabs-nav-list{
+        margin: 0 16px;
+        .ant-tabs-tab-btn{
+          padding: 0 16px;
+        }
+      }
+    }
+    .ant-tabs-content{
+      padding: 0 16px;
+    }
+  }
+}
+
+// modal 中含有 form 的场景比较多，这里直接复写样式，和 UI 对齐
+.ant-modal-body {
+  .klever-form {
+    margin: -24px;
+    border: 0;
+    .klever-form-buttons {
+      height: 57px;
+      padding: 12px 24px;
+      .c-btn-form {
+        float: right;
+        width: auto;
+        margin-left: 8px;
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.ant-table-cell {
+  .ant-btn{
+    margin-bottom: 0;
+  }
+}
+
+div[data-prefix]{
+  &:before{
+    content: attr(data-prefix);
+    position: absolute;
+    left: 1px;
+    top: 0;
+    transform: translate(-100%, 0);
+    color: #333;
+    font-size: 14px;
+    border: 1px solid #d9d9d9;
+    padding: 4px 10px;
+    background:#fff;
+    border-right: 0;
+    border-radius: 2px 0 0 2px;
+  }
+}
