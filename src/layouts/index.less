@@ -1,0 +1,62 @@
+body,
+#root,
+.klever-layout-root {
+  height: 100%;
+}
+
+.klever-sidebar-logo {
+  overflow: hidden;
+  height: @layout-header-height;
+  background: @layout-header-background;
+  img {
+    height: 46px;
+    width: auto;
+    margin: 2px 0 0 20px;
+  }
+}
+
+.klever-sidebar-trigger {
+  height: @layout-trigger-height;
+  line-height: @layout-trigger-height;
+  text-align: center;
+  font-size: 18px;
+  cursor: pointer;
+  color: @layout-trigger-color;
+  background: @layout-trigger-background;
+  border-bottom: 1px solid #38475a;
+}
+
+.klever-sidebar-menu.ant-menu-dark {
+  .ant-menu-item:hover,
+  .ant-menu-submenu-title:hover {
+    background: @menu-item-active-bg;
+  }
+
+  .ant-menu-submenu-open,
+  .ant-menu-submenu-active {
+    .anticon svg g g g {
+      fill: #fff;
+    }
+  }
+
+  .ant-menu-item .anticon,
+  .ant-menu-submenu-title .anticon {
+    position: relative;
+    top: 4px;
+  }
+}
+
+.klever-layout-content {
+  min-height: 280px;
+}
+
+.klever-layout-breadcrumb {
+  height: 48px;
+  padding: 0 16px;
+  line-height: 48px;
+  background: #fff;
+  box-shadow: 0 2px 2px 0 rgba(213, 222, 237, 0.5);
+  &.ant-breadcrumb > span:last-child {
+    font-size: 18px;
+  }
+}
