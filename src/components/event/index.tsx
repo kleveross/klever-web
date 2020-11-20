@@ -9,6 +9,7 @@ import './index.less';
 interface IEventProps {
   id: string;
   namespace: string;
+  module?: 'modeljobs' | 'servings';
 }
 
 function GetEvents(params: {
@@ -16,11 +17,18 @@ function GetEvents(params: {
   pageSize: number;
   gender?: string;
   id: string;
+  module?: 'modeljobs' | 'servings';
   namespace: string;
 }) {
-  const { id, namespace, current, pageSize: limit } = params;
+  const {
+    id,
+    module = 'modeljobs',
+    namespace,
+    current,
+    pageSize: limit,
+  } = params;
   return request(
-    `/api/v1alpha1/namespaces/${namespace}/modeljobs/${id}/events`,
+    `/api/v1alpha1/namespaces/${namespace}/${module}/${id}/events`,
     {
       params: {
         start: current - 1,

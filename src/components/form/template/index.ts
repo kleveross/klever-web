@@ -5,6 +5,7 @@ export { default as Switch } from './Switch';
 export { default as Search } from './Search';
 export { default as Select } from './Select';
 export { default as Hidden } from './Hidden';
+export { default as Storage } from './Storage';
 export { default as TextArea } from './TextArea';
 export { default as Password } from './Password';
 export { default as Checkbox } from './Checkbox';

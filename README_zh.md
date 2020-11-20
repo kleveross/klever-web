@@ -1,8 +1,8 @@
 # Klever Web
 
-English | [中文](./README_zh.md)
+[English](./README.md) | 中文
 
-Klever Web is the front-end interface of [Klever Model Registry](https://github.com/kleveross/klever-model-registry)
+Klever Web 是 [Klever Model Registry](https://github.com/kleveross/klever-model-registry) 的前端界面
 
 ## Getting Started
 
@@ -13,13 +13,13 @@ $ git clone https://github.com/kleveross/klever-web.git
 $ cd klever-web
 ```
 
-### Install dependencies,
+### Install dependencies
 
 ```bash
 $ yarn
 ```
 
-### Start the dev server,
+### Start the dev server
 
 ```bash
 $ yarn start
@@ -42,5 +42,5 @@ $ docker run -p 8888:8080 -d lever-dev.cargo.io/release/klever-web:v0.0.3
 
 ## nodePort
 
-The default application port is 8080, and the external port of the docker startup container is 8888
+默认应用端口是 8080， docker 启动容器对外端口是 8888
 

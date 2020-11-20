@@ -6,19 +6,19 @@ import Log from '@/components/logs';
 import Yaml from '@/components/yaml';
 import Desc from '@/components/desc';
 import Event from '@/components/event';
+import Interface from './_interface';
 import { flatData } from '@/components/desc/utils';
-import { GetModelJob } from '@/pages/model/_action';
+import { GetServing } from '@/pages/serving/_action';
 
-export default function JobList(){  
-  const defaultParams: { id: string } = useParams();
-  const { data, loading } = useRequest(() => GetModelJob(defaultParams.id));
+export default function ServingDetail(){
+  const defaultParams: { id: string, namespace: string } = useParams();
+  const queryID = _.get(defaultParams, 'id');
+  const namespace = _.get(defaultParams, 'namespace');
+  const { data, loading } = useRequest(() => GetServing(namespace, queryID));
 
   if(loading){
     return <Spin />;
   }
-
-  const name = _.get(data, 'metadata.name');
-  const namespace = _.get(data, 'metadata.namespace');
 
   return (
     <div className="klever-layout-page">
@@ -28,20 +28,26 @@ export default function JobList(){
         </Tabs.TabPane>
         <Tabs.TabPane tab="事件" key="event">
           <Event
-            id={defaultParams.id}
+            id={queryID}
+            module="servings"
             namespace={namespace}
           />
         </Tabs.TabPane>
         <Tabs.TabPane tab="日志" key="log">
           <Log
             namespace={namespace}
-            filter={`job-name=${name}`}
+            filter={`seldon-app=${queryID}-${_.get(data, 'spec.predictors.0.graph.name')}`}
           />
         </Tabs.TabPane>
         <Tabs.TabPane tab="YAML" key="yaml">
           <Yaml
             data={data}
-            name={defaultParams.id}
+            name={queryID}
+          />
+        </Tabs.TabPane>
+        <Tabs.TabPane tab="接口" key="interface">
+          <Interface
+            url={`http://master_ip:31380/seldon/${namespace}/${queryID}/v2/models/${queryID}`}
           />
         </Tabs.TabPane>
       </Tabs>
@@ -49,7 +55,7 @@ export default function JobList(){
   );
 }
 
-JobList.title = (path: string, params: any) => ({
+ServingDetail.title = (path: string, params: any) => ({
   name: params.id,
   path,
 });
