@@ -11,10 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 120
     steps:
+      - uses: actions/checkout@v2
       - name: setup env
         run: |
           echo "RELEASE_VERSION=$(git describe --tags)" >> $GITHUB_ENV
-      - uses: actions/checkout@v2
       - name: docker-build
         run: |
           docker build -t ghcr.io/kleveross/klever-web:$RELEASE_VERSION -f Dockerfile .
