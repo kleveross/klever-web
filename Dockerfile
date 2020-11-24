@@ -4,7 +4,7 @@ WORKDIR /usr/src/app
 
 COPY . .
 
-RUN yarn install --prod --ignore-scripts
+RUN yarn install
 
 RUN yarn run build
 
