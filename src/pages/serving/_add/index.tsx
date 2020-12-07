@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import { formats } from './config';
 import React, { useState } from 'react';
 import { Button, Modal } from 'antd';
 import { Form, Field } from '@/components/form';
@@ -76,14 +77,19 @@ export default function(props: IProps) {
               'spec.predictors.0.componentSpecs.0.metadata.name',
               modelName,
             );
+
+            let format = modelName;
+            _.forEach(formats, item => {
+              _.toLower(item) === _.toLower(modelName) && (format = item);
+            });
             _.set(submitValues, 'spec.predictors.0.graph', {
               name: modelName,
-              modelUri: `harbor-harbor-core.kleveross-system/${modelUri}`,
+              modelUri: `harbor-harbor-core.harbor-system/${modelUri}`,
               serviceAccountName: 'default',
               parameters: [
                 {
                   name: 'format',
-                  value: modelName,
+                  value: format,
                 },
               ],
             });
