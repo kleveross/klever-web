@@ -1,0 +1,16 @@
+export const formats = [
+  'SavedModel',
+  'ONNX',
+  'H5',
+  'PMML',
+  'CaffeModel',
+  'NetDef',
+  'MXNETParams',
+  'TorchScript',
+  'GraphDef',
+  'TensorRT',
+  'SKLearn',
+  'XGBoost',
+  'MLflow',
+  'MLlib',
+];

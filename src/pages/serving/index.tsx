@@ -34,14 +34,14 @@ export default function Servings() {
     },
     {
       title: '模型',
-      dataIndex: ['spec', 'predictors', '0', 'graph', 'name'],
+      dataIndex: ['spec', 'predictors', '0', 'graph', 'modelUri'],
       key: 'model',
       width: '20%',
       render: (val: string) => {
         if (!val) {
           return DEFAULT_VALUE;
         }
-        return `${val}:v1`;
+        return val.split('harbor-system/').pop() || DEFAULT_VALUE;
       },
     },
     {

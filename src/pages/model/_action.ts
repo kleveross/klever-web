@@ -117,10 +117,10 @@ export async function CreateModelJob(from: ModelJobParam, to: ModelJobParam) {
             to: to.name,
           },
         },
-        model: `harbor-harbor-core.kleveross-system/release/${_.toLower(
+        model: `harbor-harbor-core.harbor-system/release/${_.toLower(
           from.name,
         )}:${from.version}`,
-        desiredTag: `harbor-harbor-core.kleveross-system/release/${_.toLower(
+        desiredTag: `harbor-harbor-core.harbor-system/release/${_.toLower(
           to.name,
         )}:${to.version}`,
       },
